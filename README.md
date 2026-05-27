@@ -1,21 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Offer Board
+
+A web app for posting and tracking job offers, built with Next.js and Supabase.
+
+## Tech Stack
+
+- **Next.js 14** (App Router)
+- **Supabase** for auth and database
+- **Resend** for transactional email
+- **Tailwind CSS**
+- **TypeScript**
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- A [Supabase](https://supabase.com) project
+- A [Resend](https://resend.com) account (for email)
+
+### Setup
+
+1. Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/azhengis/offer-board.git
+cd offer-board
+npm install
+```
+
+2. Copy the example env file and fill in your values:
+
+```bash
+cp .env.local.example .env.local
+```
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+3. Apply the database migrations:
+
+```bash
+supabase db push
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/          # App source code (Next.js App Router)
+supabase/
+  migrations/ # Database schema migrations
+```
